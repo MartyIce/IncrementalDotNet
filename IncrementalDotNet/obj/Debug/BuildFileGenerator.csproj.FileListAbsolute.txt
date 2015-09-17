@@ -1,0 +1,8 @@
+c:\public\IncrementalDotNet\IncrementalDotNet\bin\Debug\IncrementalDotNet.exe.config
+c:\public\IncrementalDotNet\IncrementalDotNet\bin\Debug\IncrementalDotNet.exe
+c:\public\IncrementalDotNet\IncrementalDotNet\bin\Debug\IncrementalDotNet.pdb
+c:\public\IncrementalDotNet\IncrementalDotNet\bin\Debug\IncrementalDotNet.Domain.dll
+c:\public\IncrementalDotNet\IncrementalDotNet\bin\Debug\IncrementalDotNet.Domain.pdb
+c:\public\IncrementalDotNet\IncrementalDotNet\obj\Debug\IncrementalDotNet.csprojResolveAssemblyReference.cache
+c:\public\IncrementalDotNet\IncrementalDotNet\obj\Debug\IncrementalDotNet.exe
+c:\public\IncrementalDotNet\IncrementalDotNet\obj\Debug\IncrementalDotNet.pdb

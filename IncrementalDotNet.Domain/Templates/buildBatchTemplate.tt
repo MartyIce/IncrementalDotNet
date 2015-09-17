@@ -1,0 +1,47 @@
+﻿<#@ template  debug="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#
+
+
+#>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+
+<# 
+	string allTargets = "";
+	foreach(var ps in BuildInfo.ProjectSetsToBuild) { 
+		if(ps == CurrentProjectSet)
+			break;
+		if(!string.IsNullOrEmpty(allTargets))
+			allTargets += ";";
+		allTargets += ps.BuildKeyName;
+   }
+
+	foreach(var pi in CurrentProjectSet.ProjectInfos) { 
+		if(!string.IsNullOrEmpty(allTargets))
+			allTargets += ";";
+		allTargets += pi.BuildKeyName;
+   }
+
+#>
+
+  <Target Name="<#=CurrentProjectSet.BuildKeyName#>" DependsOnTargets="<#=allTargets#>"/>
+  
+<# foreach(var pi in CurrentProjectSet.ProjectInfos) { #>
+  <Target Name="<#=pi.BuildKeyName#>" DependsOnTargets="<#=pi.BuildKeyName#>_Build;<#=pi.BuildKeyName#>_Deploy"/>
+  <Target Name="<#=pi.BuildKeyName#>_Build">
+    <MSBuild Projects="<#=pi.Path#>" Targets="$(BuildTarget)" Properties="$(BuildProperties)"/>
+  </Target>
+
+  <Target Name="<#=pi.BuildKeyName#>_Deploy">
+  </Target>
+<# } #>    
+</Project>
+

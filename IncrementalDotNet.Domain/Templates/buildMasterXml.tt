@@ -1,0 +1,36 @@
+﻿<#@ template  debug="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#
+	string allTargets = "";
+	foreach(var ps in BuildInfo.ProjectSetsToBuild) { 
+		if(!string.IsNullOrEmpty(allTargets))
+			allTargets += ";";
+		allTargets += ps.BuildKeyName;
+   }#>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<#
+	foreach(var ps in BuildInfo.ProjectSetsToBuild) {
+#>	<Import Project="autobuild.<#=ps.BuildKeyName#>.xml" />
+<#
+    }
+#>
+  <ItemGroup />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <BuildTarget>Rebuild</BuildTarget>
+    <BuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=$(Configuration)</BuildProperties>
+	  <SilverlightBuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=Release</SilverlightBuildProperties>
+    <BaseDir>..\..</BaseDir>
+    <PackageBuildSvnRevision>1</PackageBuildSvnRevision>
+	<BuildInstance></BuildInstance>
+  </PropertyGroup>
+  <Target Name="default" DependsOnTargets="<#=allTargets#>" />
+</Project>
