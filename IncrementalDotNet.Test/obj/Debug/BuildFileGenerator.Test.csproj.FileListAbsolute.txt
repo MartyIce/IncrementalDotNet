@@ -1,9 +1,0 @@
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\obj\Debug\IncrementalDotNet.Test.csprojResolveAssemblyReference.cache
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\IncrementalDotNet.Test.dll
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\IncrementalDotNet.Test.pdb
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\IncrementalDotNet.Domain.dll
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\nunit.framework.dll
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\IncrementalDotNet.Domain.pdb
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\bin\Debug\nunit.framework.xml
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\obj\Debug\IncrementalDotNet.Test.dll
-c:\public\IncrementalDotNet\IncrementalDotNet.Test\obj\Debug\IncrementalDotNet.Test.pdb

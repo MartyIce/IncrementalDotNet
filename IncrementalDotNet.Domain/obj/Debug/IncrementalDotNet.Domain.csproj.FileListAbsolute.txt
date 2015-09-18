@@ -1,5 +1,0 @@
-C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\bin\Debug\IncrementalDotNet.Domain.dll
-C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\bin\Debug\IncrementalDotNet.Domain.pdb
-C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\obj\Debug\IncrementalDotNet.Domain.csprojResolveAssemblyReference.cache
-C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\obj\Debug\IncrementalDotNet.Domain.dll
-C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\obj\Debug\IncrementalDotNet.Domain.pdb
