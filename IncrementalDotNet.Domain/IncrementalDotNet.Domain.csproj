@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildFileExecutor.cs" />
+    <Compile Include="BuildParser.cs" />
+    <Compile Include="IncrementalBuildGenerator.cs" />
     <Compile Include="BuildInfoGenerator.cs" />
     <Compile Include="Contracts\BuildInfo.cs" />
     <Compile Include="Contracts\ProjectInfo.cs" />
@@ -74,6 +76,7 @@
       <LastGenOutput>buildMasterXml1.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

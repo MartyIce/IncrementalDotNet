@@ -11,8 +11,8 @@ namespace IncrementalDotNet
     {
         static void Main(string[] args)
         {
-            BuildFileExecutor bfe = new BuildFileExecutor(new ChangeFinder(), new BuildInfoGenerator(), new MSBuildFileCreator());
-            bfe.Execute();
+            IncrementalBuildGenerator ibg = new IncrementalBuildGenerator(new ChangeFinder(new MSBuildParser()), new BuildInfoGenerator(), new MSBuildFileCreator());
+            ibg.Execute();
 
         }
     }

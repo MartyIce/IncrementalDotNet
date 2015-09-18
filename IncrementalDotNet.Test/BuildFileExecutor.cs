@@ -15,7 +15,7 @@ namespace IncrementalDotNet.Test
             var changeFinder = new MockChangeFinder();
             var buildInfoGenerator = new MockBuildInfoGenerator();
             var buildFileCreator = new MockBuildFileCreator();
-            Domain.BuildFileExecutor bfe = new Domain.BuildFileExecutor(changeFinder, buildInfoGenerator, buildFileCreator);
+            Domain.IncrementalBuildGenerator bfe = new Domain.IncrementalBuildGenerator(changeFinder, buildInfoGenerator, buildFileCreator);
             bfe.Execute();
 
             Assert.AreEqual(changeFinder.GeneratedPis, buildInfoGenerator.PassedPis);
