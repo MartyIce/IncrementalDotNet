@@ -20,7 +20,7 @@ namespace IncrementalDotNet.Domain.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+    #line 1 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
     public partial class buildBatchTemplate : buildBatchTemplateBase
     {
@@ -32,7 +32,7 @@ namespace IncrementalDotNet.Domain.Templates
         {
             this.Write(" \r\n");
             
-            #line 11 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 11 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
 
 
 
@@ -43,7 +43,7 @@ namespace IncrementalDotNet.Domain.Templates
             this.Write("<Project xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\" ToolsVersion" +
                     "=\"3.5\">\r\n\r\n");
             
-            #line 17 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 17 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
  
 	string allTargets = "";
 	foreach(var ps in BuildInfo.ProjectSetsToBuild) { 
@@ -66,56 +66,62 @@ namespace IncrementalDotNet.Domain.Templates
             #line hidden
             this.Write("\r\n  <Target Name=\"");
             
-            #line 35 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 35 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(CurrentProjectSet.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("\" DependsOnTargets=\"");
             
-            #line 35 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 35 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(allTargets));
             
             #line default
             #line hidden
             this.Write("\"/>\r\n  \r\n");
             
-            #line 37 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 37 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
  foreach(var pi in CurrentProjectSet.ProjectInfos) { 
             
             #line default
             #line hidden
             this.Write("  <Target Name=\"");
             
-            #line 38 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 38 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("\" DependsOnTargets=\"");
             
-            #line 38 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 38 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("_Build;");
             
-            #line 38 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 38 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("_Deploy\"/>\r\n  <Target Name=\"");
             
-            #line 39 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 39 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("_Build\">\r\n    <MSBuild Projects=\"");
             
-            #line 40 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 40 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(BuildInfo.BuildFileRelativeOffset));
+            
+            #line default
+            #line hidden
+            
+            #line 40 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Path));
             
             #line default
@@ -123,14 +129,14 @@ namespace IncrementalDotNet.Domain.Templates
             this.Write("\" Targets=\"$(BuildTarget)\" Properties=\"$(BuildProperties)\"/>\r\n  </Target>\r\n\r\n  <T" +
                     "arget Name=\"");
             
-            #line 43 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 43 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.BuildKeyName));
             
             #line default
             #line hidden
             this.Write("_Deploy\">\r\n  </Target>\r\n");
             
-            #line 45 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
+            #line 45 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildBatchTemplate.tt"
  } 
             
             #line default

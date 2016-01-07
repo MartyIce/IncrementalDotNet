@@ -6,12 +6,20 @@ namespace IncrementalDotNet.Test
     [TestFixture]
     public class ChangeFinder
     {
+        private class Logger : ILogger
+        {
+            public void WriteLine(string text)
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
         [Test]
         public void Test()
         {
-            Domain.ChangeFinder cf = new Domain.ChangeFinder(new MSBuildParser());
+            Domain.ChangeFinder cf = new Domain.ChangeFinder(new MSBuildParser(), new Logger());
             string rootDirectory = @"C:\Temp";
-            cf.FindProjectsWithRecentChanges(rootDirectory);
+            cf.FindProjectsToBuild(rootDirectory, false);
         }
     }
 }

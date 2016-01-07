@@ -6,14 +6,14 @@ namespace IncrementalDotNet.Domain
 {
     public interface IBuildInfoGenerator
     {
-        BuildInfo GenerateBuild(List<ProjectInfo> pis);
+        BuildInfo GenerateBuild(List<ProjectInfo> pis, string buildFileRelativeOffset);
     }
 
     public class BuildInfoGenerator : IBuildInfoGenerator
     {
-        public BuildInfo GenerateBuild(List<ProjectInfo> pis)
+        public BuildInfo GenerateBuild(List<ProjectInfo> pis, string buildFileRelativeOffset)
         {
-            BuildInfo bi = new BuildInfo();
+            BuildInfo bi = new BuildInfo(buildFileRelativeOffset);
             List<ProjectInfo> accountedProjects = new List<ProjectInfo>();
 
             // First find projects with no references in anything else in this list.
@@ -47,8 +47,9 @@ namespace IncrementalDotNet.Domain
                     {
                         string refToMatch = reference.EndsWith(".dll") ? reference.Replace(".dll", "") : reference;
 
-                        if (pis.Any(x => refToMatch.EndsWith(x.AssemblyName)) &&
-                            !accountedProjects.Any(x => refToMatch.EndsWith(x.AssemblyName)))
+                        bool assemblyInOurTree = pis.Any(x => refToMatch.EndsWith(x.AssemblyName));
+                        bool assemblyAlreadyAccounted = accountedProjects.Any(x => refToMatch.EndsWith(x.AssemblyName));
+                        if (assemblyInOurTree && !assemblyAlreadyAccounted)
                         {
                             unreferenced = false;
                             break;

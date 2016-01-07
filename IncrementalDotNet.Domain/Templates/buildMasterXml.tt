@@ -24,10 +24,11 @@
 #>
   <ItemGroup />
   <PropertyGroup>
+	<BuildInParallel Condition="'$(BuildInParallel)' == ''">true</BuildInParallel>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <BuildTarget>Rebuild</BuildTarget>
-    <BuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=$(Configuration)</BuildProperties>
-	  <SilverlightBuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=Release</SilverlightBuildProperties>
+    <BuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=$(Configuration); BuildProjectReferences=false</BuildProperties>
+	  <SilverlightBuildProperties Condition=" '$(BuildProperties)' == '' ">Configuration=Debug; BuildProjectReferences=false</SilverlightBuildProperties>
     <BaseDir>..\..</BaseDir>
     <PackageBuildSvnRevision>1</PackageBuildSvnRevision>
 	<BuildInstance></BuildInstance>

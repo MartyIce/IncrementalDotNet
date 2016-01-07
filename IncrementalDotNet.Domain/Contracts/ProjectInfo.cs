@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace IncrementalDotNet.Domain.Contracts
 {
-    
+    [DebuggerDisplay("{Path}")]
     public class ProjectInfo
     {
         public ProjectInfo(string path)
@@ -25,20 +26,5 @@ namespace IncrementalDotNet.Domain.Contracts
             get { return AssemblyName.Replace(" ", "").Replace(".", "").Trim(); }
         }
 
-        public bool HasFilesNewerThanAssembly()
-        {
-            var assemblyFileInfo = new FileInfo(OutputPath + AssemblyName + ".dll");
-            DateTime assemblyUpdate = assemblyFileInfo.LastWriteTime;
-            bool retVal = false;
-            foreach (string file in Files)
-            {
-                if ((new FileInfo(file)).LastWriteTime > assemblyUpdate)
-                {
-                    retVal = true;
-                    break;
-                }
-            }
-            return retVal;
-        }
     }
 }

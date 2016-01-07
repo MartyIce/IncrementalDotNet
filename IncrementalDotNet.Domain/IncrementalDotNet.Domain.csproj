@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildParser.cs" />
+    <Compile Include="ILogger.cs" />
     <Compile Include="IncrementalBuildGenerator.cs" />
     <Compile Include="BuildInfoGenerator.cs" />
     <Compile Include="Contracts\BuildInfo.cs" />

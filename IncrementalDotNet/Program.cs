@@ -11,9 +11,18 @@ namespace IncrementalDotNet
     {
         static void Main(string[] args)
         {
-            IncrementalBuildGenerator ibg = new IncrementalBuildGenerator(new ChangeFinder(new MSBuildParser()), new BuildInfoGenerator(), new MSBuildFileCreator());
+            var logger = new Logger();
+            IncrementalBuildGenerator ibg = new IncrementalBuildGenerator(new ChangeFinder(new MSBuildParser(), logger), new BuildInfoGenerator(), new MSBuildFileCreator(logger));
             ibg.Execute();
 
+        }
+    }
+
+    internal class Logger : ILogger
+    {
+        public void WriteLine(string text)
+        {
+            Console.WriteLine(text);
         }
     }
 

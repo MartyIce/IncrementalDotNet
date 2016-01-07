@@ -37,7 +37,7 @@
 <# foreach(var pi in CurrentProjectSet.ProjectInfos) { #>
   <Target Name="<#=pi.BuildKeyName#>" DependsOnTargets="<#=pi.BuildKeyName#>_Build;<#=pi.BuildKeyName#>_Deploy"/>
   <Target Name="<#=pi.BuildKeyName#>_Build">
-    <MSBuild Projects="<#=pi.Path#>" Targets="$(BuildTarget)" Properties="$(BuildProperties)"/>
+    <MSBuild Projects="<#=BuildInfo.BuildFileRelativeOffset#><#=pi.Path#>" Targets="$(BuildTarget)" Properties="$(BuildProperties)"/>
   </Target>
 
   <Target Name="<#=pi.BuildKeyName#>_Deploy">

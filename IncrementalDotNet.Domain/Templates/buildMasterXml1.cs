@@ -20,7 +20,7 @@ namespace IncrementalDotNet.Domain.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+    #line 1 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
     public partial class buildMasterXml : buildMasterXmlBase
     {
@@ -32,7 +32,7 @@ namespace IncrementalDotNet.Domain.Templates
         {
             this.Write(" \r\n");
             
-            #line 11 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+            #line 11 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
 
 	string allTargets = "";
 	foreach(var ps in BuildInfo.ProjectSetsToBuild) { 
@@ -46,7 +46,7 @@ namespace IncrementalDotNet.Domain.Templates
             this.Write("<Project xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\" ToolsVersion" +
                     "=\"4.0\">\r\n");
             
-            #line 19 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+            #line 19 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
 
 	foreach(var ps in BuildInfo.ProjectSetsToBuild) {
 
@@ -55,14 +55,14 @@ namespace IncrementalDotNet.Domain.Templates
             #line hidden
             this.Write("\t<Import Project=\"autobuild.");
             
-            #line 21 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+            #line 21 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ps.BuildKeyName));
             
             #line default
             #line hidden
             this.Write(".xml\" />\r\n");
             
-            #line 22 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+            #line 22 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
 
     }
 
@@ -71,17 +71,18 @@ namespace IncrementalDotNet.Domain.Templates
             #line hidden
             this.Write(@"  <ItemGroup />
   <PropertyGroup>
+	<BuildInParallel Condition=""'$(BuildInParallel)' == ''"">true</BuildInParallel>
     <Configuration Condition="" '$(Configuration)' == '' "">Debug</Configuration>
     <BuildTarget>Rebuild</BuildTarget>
-    <BuildProperties Condition="" '$(BuildProperties)' == '' "">Configuration=$(Configuration)</BuildProperties>
-	  <SilverlightBuildProperties Condition="" '$(BuildProperties)' == '' "">Configuration=Release</SilverlightBuildProperties>
+    <BuildProperties Condition="" '$(BuildProperties)' == '' "">Configuration=$(Configuration); BuildProjectReferences=false</BuildProperties>
+	  <SilverlightBuildProperties Condition="" '$(BuildProperties)' == '' "">Configuration=Debug; BuildProjectReferences=false</SilverlightBuildProperties>
     <BaseDir>..\..</BaseDir>
     <PackageBuildSvnRevision>1</PackageBuildSvnRevision>
 	<BuildInstance></BuildInstance>
   </PropertyGroup>
   <Target Name=""default"" DependsOnTargets=""");
             
-            #line 35 "C:\Public\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
+            #line 36 "C:\Apps\ascendon-core\ContentDirect\MojoTools\IncrementalDotNet\IncrementalDotNet.Domain\Templates\buildMasterXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(allTargets));
             
             #line default

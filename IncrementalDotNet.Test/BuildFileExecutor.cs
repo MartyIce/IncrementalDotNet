@@ -25,10 +25,10 @@ namespace IncrementalDotNet.Test
         {
             public List<ProjectInfo> PassedPis { get; set; }
             public BuildInfo GeneratedBi { get; set; }
-            public BuildInfo GenerateBuild(List<ProjectInfo> pis)
+            public BuildInfo GenerateBuild(List<ProjectInfo> pis, string relativePathOffset)
             {
                 PassedPis = pis;
-                GeneratedBi = new BuildInfo();
+                GeneratedBi = new BuildInfo("");
                 return GeneratedBi;
             }
         }
@@ -36,7 +36,7 @@ namespace IncrementalDotNet.Test
         public class MockChangeFinder : IChangeFinder
         {
             public List<ProjectInfo> GeneratedPis { get; set; }
-            public List<ProjectInfo> FindProjectsWithRecentChanges(string rootDirectory)
+            public List<ProjectInfo> FindProjectsToBuild(string rootDirectory, bool buildAll)
             {
                 GeneratedPis = new List<ProjectInfo>();
                 return GeneratedPis;

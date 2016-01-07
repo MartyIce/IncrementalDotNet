@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Runtime.Serialization.Json;
 using IncrementalDotNet.Domain.Contracts;
 
 namespace IncrementalDotNet.Domain
@@ -19,9 +20,11 @@ namespace IncrementalDotNet.Domain
 
         public void Execute()
         {
-            List<ProjectInfo> pis = _changeFinder.FindProjectsWithRecentChanges(ConfigurationManager.AppSettings["rootDir"]);
+            bool buildAll = false;
+            bool.TryParse(ConfigurationManager.AppSettings["buildAll"].ToString(), out buildAll);
+            List<ProjectInfo> pis = _changeFinder.FindProjectsToBuild(ConfigurationManager.AppSettings["rootDir"], buildAll);
 
-            BuildInfo bi = _buildInfoGenerator.GenerateBuild(pis);
+            BuildInfo bi = _buildInfoGenerator.GenerateBuild(pis, ConfigurationManager.AppSettings["buildFileRelativeOffset"]);
 
             _buildFileCreator.WriteBuildFile(bi);
         }
